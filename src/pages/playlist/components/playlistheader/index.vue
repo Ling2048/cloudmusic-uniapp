@@ -34,7 +34,7 @@
 <script lang="ts">
 import Vue from 'vue'
 import { getCount } from '../../../../common'
-import { arrow } from '../../../../common/icons'
+import { arrow, playCounts } from '../../../../common/icons'
 
 export default Vue.extend({
   name: 'play-list-header',
@@ -43,7 +43,8 @@ export default Vue.extend({
   },
   data() {
     return {
-      arrow
+      arrow,
+      playCounts
     }
   },
   computed: {

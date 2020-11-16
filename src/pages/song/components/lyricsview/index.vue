@@ -26,7 +26,9 @@ export default Vue.extend({
   computed: {
     ...mapState(['songlyrics']),
     lyrics: function() {
-      return handleLyric(this.songlyrics);
+      if (this.songlyrics) {
+        return handleLyric(this.songlyrics);
+      }
     }
   },
 })

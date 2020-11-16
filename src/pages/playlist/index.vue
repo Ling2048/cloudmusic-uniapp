@@ -56,12 +56,14 @@
           creator: ""
         },
         share,
-        playIconAll
+        playIconAll,
+        id: null
       }
     },
-    onLoad(options: {id: number}) {
+    onLoad(options: {id: string}) {
+      this.id = Number.parseInt(options.id)
       playlistdetail({
-        id: options.id,
+        id: this.id,
         shareUserId: 0
       }).then((res)=>{
         const _list = mergeSongBytrack(res.playlist.tracks, res.privileges, 0, res.playlist.tracks.length)

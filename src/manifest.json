@@ -65,5 +65,15 @@
     },
     "mp-qq" : {
         "usingComponents" : true
+    },
+    "h5": {
+        "devServer": {
+            "proxy": {
+                "/weapi": {
+                    "target": "https://music.163.com",
+                    "changeOrigin": true
+                }
+            }
+        }
     }
 }

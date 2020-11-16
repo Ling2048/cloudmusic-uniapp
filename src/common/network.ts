@@ -1,17 +1,12 @@
-import { enData } from './cmcode/index';
+import { enData } from './cmcode/index'
 
-const base = 'https://music.163.com';
+let base = 'https://music.163.com'
+
+// #ifdef H5
+  base = ''
+// #endif
 
 const Post = <T>(url: string, data: any) => {
-  // return uni.request(url, {
-  //   data: enData(data),
-  //   method: 'POST',
-  //   headers: {
-  //     Accept: "*/*",
-  //     "Content-Type": "application/x-www-form-urlencoded"
-  //   }
-  // }) as Promise<T>
-
   return (uni.request({
     url: base + url,
     data: enData(data),

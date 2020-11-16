@@ -10,13 +10,15 @@
     <view>
         <view v-for="item in songs" :key="item.id" class='simisong-item'>
           <image class='simisong-img' :src="item.pic"/>
-          <view class='styles.content'>
+          <view class='content'>
             <text class='content-title'>
               {{item.songName}}
             </text>
             <view class='content-main'>
               <image v-if="item.isSQ" class='sq-tag' :src="sq"/>
-              {{item.singerName + ' - ' + item.albumName}}
+              <text>
+                {{item.singerName + ' - ' + item.albumName}}
+              </text>
             </view>
           </view>
           <view class='content-btn'/>

@@ -101,7 +101,24 @@ let SystemInfoInstance : WechatMiniprogram.GetSystemInfoSyncResult | null = null
 
 const getMenuButtonBoundingClientRectInstance = () => {
   if (!MenuButtonBoundingClientRectInstance) {
+    MenuButtonBoundingClientRectInstance = {
+      /** 下边界坐标，单位：px */
+      bottom: 0,
+      /** 高度，单位：px */
+      height: 0,
+      /** 左边界坐标，单位：px */
+      left: 0,
+      /** 右边界坐标，单位：px */
+      right: 0,
+      /** 上边界坐标，单位：px */
+      top: 0,
+      /** 宽度，单位：px */
+      width: 0
+    }
+    // #ifdef mp-weixin
     MenuButtonBoundingClientRectInstance = uni.getMenuButtonBoundingClientRect()
+    // #endif
+    
   }
   return MenuButtonBoundingClientRectInstance
 }

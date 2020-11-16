@@ -1,8 +1,8 @@
 <template>
   <view>
     <view v-if="songdetail" class='song-bg'>
-      <Image class='song-bg-img current' :style="current" :src="pic"/>
-      <Image class='song-bg-img next' :style="next" :src="pic"/>
+      <image class='song-bg-img current' :style="current" :src="pic"/>
+      <image class='song-bg-img next' :style="next" :src="pic"/>
     </view>
   </view>
 </template>

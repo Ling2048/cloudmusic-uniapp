@@ -1,6 +1,5 @@
 <template>
   <view class="m-skeleton-playlist">
-    <!-- <view class="empty"/> -->
     <view class="intro">
       <view class="intro-cover"/>
       <view clas="intro-content">
@@ -17,11 +16,11 @@
       <view class="title"/>
     </view>
     <view class="playlist-wrap">
-      <View v-for="(_, i) in [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]" :key="i" class="list-item">
-        <View class="order"/>
-        <View class="content"/>
-        <View class="play-icon"/>
-      </View>
+      <view v-for="(_, i) in items" :key="i" class="list-item">
+        <view class="order"/>
+        <view class="content"/>
+        <view class="play-icon"/>
+      </view>
     </view>
   </view>
 </template>
@@ -29,7 +28,12 @@
 <script lang="ts">
 import Vue from 'vue'
 export default Vue.extend({
-  name: 'skeleton'
+  name: 'skeleton',
+  data() {
+    return {
+      items: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+    }
+  }
 })
 </script>
 

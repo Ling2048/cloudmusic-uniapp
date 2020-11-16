@@ -1,7 +1,7 @@
 <template>
   <view>
-    <image v-if="!playerstutes" class='play-btn' :src='play'/>
-    <image v-else class='play-btn' :src='pause'/>
+    <image v-if="!playerstutes" class='play-btn' :src='play' @click="playOrPause"/>
+    <image v-else class='play-btn' :src='pause' @click="playOrPause"/>
   </view>
 </template>
 
@@ -19,6 +19,12 @@ export default Vue.extend({
       pause
     }
   },
+  methods: {
+    playOrPause: function() {
+      console.log('playOrPause', this.playerstutes)
+      this.$store.commit('setPlayerStatus', !this.playerstutes)
+    }
+  }
 })
 </script>
 

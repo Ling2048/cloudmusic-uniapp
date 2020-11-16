@@ -1,5 +1,5 @@
 <template>
-  <view class='song-lyric' style="overflow: hidden">
+  <view class='song-lyric' style="overflow: scroll">
     <view class='lyric-wrap'>
       <!-- style={{transform: 'translate3D(0, ' + 40 * -s + 'PX, 0)'}}> -->
       <view v-if="!lyrics.scrollable || !lyrics.nolyric" class='lyric-item'>该歌词不支持滚动</view>

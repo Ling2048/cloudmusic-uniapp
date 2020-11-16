@@ -5,8 +5,8 @@
       <image class='vinyl-needle' :src='needle'/>
     </view>
     <view class='vinyl-turntable'>
-      <image class='vinyl-mask' :src='picUrl'/>
-      <image class='vinyl-bottom' :src='vinyl'/>
+      <image :class='`vinyl-mask ${circlingOrPause}`' :src='picUrl'/>
+      <image :class='`vinyl-bottom ${circlingOrPause}`' :src='vinyl'/>
     </view>
     <lyrics-view/>
   </view>
@@ -32,9 +32,15 @@ export default Vue.extend({
     }
   },
   computed: {
-    ...mapState(['songdetail']),
+    ...mapState(['songdetail', 'playerstutes']),
     picUrl: function() {
-      return this.songdetail[0].al.picUrl + '?imageView=1&thumbnail=360y360'
+      if (this.songdetail.length > 0) {
+        return this.songdetail[0].al.picUrl + '?imageView=1&thumbnail=360y360'
+      }
+      return ''
+    },
+    circlingOrPause: function() {
+      return this.playerstutes ? 'circling' : 'pause'
     }
   }
 })
