@@ -1,0 +1,22 @@
+{
+	"pages": [
+		{
+			"path": "pages/index/index"
+    },
+    {
+			"path": "pages/playlist/index",
+			"style": {
+				"navigationBarTitleText": "歌单"
+			}
+    },
+    {
+			"path": "pages/song/index"
+		}
+	],
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "网易云音乐-UniApp",
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#F8F8F8"
+	}
+}
