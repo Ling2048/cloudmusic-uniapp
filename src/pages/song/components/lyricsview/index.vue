@@ -6,10 +6,10 @@
         <text v-else>歌词加载中...</text>
       </view>
     </view>
-    <button class='lyrics-btn'>
+<!--    <button class='lyrics-btn'>
       <text>在网易云音乐查看更多歌词</Text>
       <text class='lyrics-btn-arrow'/>
-    </button>
+    </button> -->
   </view>
 </template>
 

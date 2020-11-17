@@ -93,7 +93,7 @@ const store = new Vuex.Store({
       if (payload) {
         setAdudioInfo(state.src)
       }
-      else {
+      else if (!audioManager.paused) {
         audioManager.pause()
       }
       state.playerstutes = payload
