@@ -42,8 +42,12 @@ export default Vue.extend({
       scrollStyle
     }
   },
-  onLoad(options: {id: number, source: string, sourceid: number}) {
-    const { id, source, sourceid } = options
+  onLoad(options: {id: number, source: string, sourceid: number, name: string}) {
+    const { id, source, sourceid, name } = options
+
+    uni.setNavigationBarTitle({
+      title: name
+    })
 
     songdetail(id).then(res => {
       const data = res.data

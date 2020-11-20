@@ -1,7 +1,7 @@
 <template>
   <view class='m-play-list' style="padding-left: 0">
     <view v-for="(v, i) in list" :key="v.id" class='list-item' 
-      @click="handleItemTap(v.id, 'list', id, list)">
+      @click="handleItemTap(v.id, 'list', id, list, v.name)">
       <view v-if="!noOrder" class='order'>
         {{i+1}}
       </view>
@@ -57,10 +57,10 @@ const songPrivilege = (privilege: PlayListType[0]['privilege']) => {
 //   StorageSync.setStorage('songList', JSON.stringify(songList))
 // }
 
-const handleItemTap = (id: number, source: string, sourceid: number, list: PlayListType) => {
+const handleItemTap = (id: number, source: string, sourceid: number, list: PlayListType, name: string) => {
   // setPrivilegeList(list)
   uni.navigateTo({
-    url: '/pages/song/index?id=' + id + '&source=' + source + '&sourceid=' + sourceid
+    url: '/pages/song/index?id=' + id + '&source=' + source + '&sourceid=' + sourceid + '&name=' + name
   })
 }
 export default Vue.extend<any, any, any, {

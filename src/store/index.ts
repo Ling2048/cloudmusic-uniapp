@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import { search } from '@/common/network'
 
 Vue.use(Vuex)
 
@@ -58,6 +59,12 @@ const store = new Vuex.Store({
     songlyrics: null,
     simisong: [],
     songcomment: [],
+    hotSearchList: [],
+    recommendList: [],
+    searchValue: '',
+    searchType: 1,
+    searchList: {},
+    songList: {},
 
     playerinfo: {},
     playerstutes: false,
@@ -82,6 +89,18 @@ const store = new Vuex.Store({
     setSongComment(state, payload: []) {
       state.songcomment = payload
     },
+    setHotSearchList(state, payload: []) {
+      state.hotSearchList = payload
+    },
+    setRecommendList(state, payload: []) {
+      state.recommendList = payload
+    },
+    setSearchValue(state, payload: string) {
+      state.searchValue = payload
+    },
+    setSearchType(state, payload: number) {
+      state.searchType = payload
+    },
     setPlayerInfo(state, payload: any) {
       if ((state.playerinfo as any).id != payload.songInfo.id) {
         state.playerinfo = payload.songInfo
@@ -102,6 +121,19 @@ const store = new Vuex.Store({
   getters:{
   },
 	actions: {
+    Search({ commit, state }, payload: any) {
+      state.searchType = 3;
+      search(payload).then(res => {
+        console.log(res.result)
+        state.searchList = res.result;
+
+        state.songList = {
+          songs: res.result.songs ?? [],
+          highlights: res.result.highlights ?? [],
+          isLoaded: true
+        }
+      })
+    }
 	}
 })
 

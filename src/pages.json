@@ -11,6 +11,12 @@
     },
     {
 			"path": "pages/song/index"
+    },
+    {
+      "path": "pages/search/index",
+      "style": {
+        "navigationBarTitleText": "搜索"
+      }
 		}
 	],
 	"globalStyle": {

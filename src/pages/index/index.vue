@@ -4,7 +4,7 @@
       <skeleton v-if="!loaded"/>
 	    <view v-else class="wrap">
 	      <!-- <view class="empty"/> -->
-	      <view class="search-box">
+	      <view class="search-box" @click="search()">
 	        <image class="search-icon" :src="searchIcon"/>
 	        <text class="search-text">
 	          搜索歌曲
@@ -32,7 +32,10 @@
 			return {
 				title: 'Hello',
         searchIcon: searchIcon,
-        loaded: false
+        loaded: false,
+        test: {
+          name: '123'
+        }
 			}
 		},
     mounted() {
@@ -41,8 +44,13 @@
         this.$store.commit('setTopList', (res.data as any).filter((v: any) => 'OFFICIAL' === v.categoryCode)[0]?.list.slice(0, 4));
       });
     },
-		methods: {
-    },
+    methods: {
+      search() {
+        uni.navigateTo({
+          url: '/pages/search/index'
+        })
+      }
+    }
 	});
 </script>
 
