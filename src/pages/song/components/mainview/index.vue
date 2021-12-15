@@ -5,8 +5,8 @@
       <image class='vinyl-needle' :src='needle'/>
     </view>
     <view class='vinyl-turntable'>
-      <image :class='`vinyl-mask ${circlingOrPause}`' :src='picUrl'/>
-      <image :class='`vinyl-bottom ${circlingOrPause}`' :src='vinyl'/>
+      <image :class="['vinyl-mask', circlingOrPause]" :src='picUrl'/>
+      <image :class="['vinyl-bottom', circlingOrPause]" :src='vinyl'/>
     </view>
     <lyrics-view/>
   </view>
@@ -40,7 +40,7 @@ export default Vue.extend({
       return ''
     },
     circlingOrPause: function() {
-      return this.playerstutes ? 'circling' : 'pause'
+		return this.playerstutes ? 'circling' : 'pause'
     }
   }
 })
